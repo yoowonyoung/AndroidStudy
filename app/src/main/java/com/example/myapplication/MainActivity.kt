@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -9,15 +10,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var cnt1 = 0
-        var cnt2 = 0
+
         button1.setOnClickListener {
-            cnt1++
-            count1.text = "$cnt1"
+            val intent = Intent(this@MainActivity, MainActivity2::class.java)
+            intent.putExtra("value", et1.text.toString().toInt())
+            startActivity(intent)
         }
+
         button2.setOnClickListener {
-            cnt2++
-            count2.text = "$cnt2"
+            val intent = Intent(this@MainActivity, MainActivity3::class.java)
+            intent.putExtra("value", et2.text.toString())
+            startActivity(intent)
         }
     }
 
